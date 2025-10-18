@@ -15,9 +15,7 @@ impl LineHandler {
             target_user_id,
         }
     }
-}
 
-impl LineHandler {
     pub async fn send_notification(&self, message: &str) -> Result<()> {
         let body = serde_json::json!({
             "to": self.target_user_id,
