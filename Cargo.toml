@@ -1,0 +1,16 @@
+[package]
+name = "mention-notifier"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+dotenvy = "0.15.7"
+env_logger = "0.11.8"
+log = "0.4.28"
+regex = "1.12.2"
+reqwest = "0.12.24"
+serde = "1.0.228"
+serde_json = "1.0.145"
+serenity = "0.12.4"
+tokio = { version = "1.48.0", features = ["macros", "rt-multi-thread"] }
