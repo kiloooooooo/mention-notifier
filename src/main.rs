@@ -16,7 +16,7 @@ mod message_provider;
 impl MentionMonitorCallback for LineHandler {
     async fn on_mention(&self, ctx: Context, message: &Message) {
         let out_message = match MessageProvider::build_message(&ctx, message).await {
-            Ok(msg) => msg,
+            Ok(message) => message,
             Err(why) => {
                 error!("Failed to build message: {:?}", why);
                 return;
