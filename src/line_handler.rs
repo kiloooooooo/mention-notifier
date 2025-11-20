@@ -1,6 +1,7 @@
 use anyhow::Result;
 use log::info;
 
+/// LINE Messaging APIを使用して通知を送るハンドラ
 pub struct LineHandler {
     messaging_api_url: String,
     token: String,
@@ -8,6 +9,7 @@ pub struct LineHandler {
 }
 
 impl LineHandler {
+    /// LineHandlerの新しいインスタンスを作成する
     pub fn new(messaging_api_url: String, token: String, target_user_id: String) -> Self {
         Self {
             messaging_api_url,
@@ -16,6 +18,7 @@ impl LineHandler {
         }
     }
 
+    /// LINEに通知を送る
     pub async fn send_notification(&self, message: &str) -> Result<()> {
         let body = serde_json::json!({
             "to": self.target_user_id,
